@@ -26,3 +26,7 @@ DOI: [10.5281/zenodo.7674842](https://doi.org/10.5281/zenodo.7674842)
 ## Getting Started
 
 [Instructions for setup and usage to be added]
+
+## Licence
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
