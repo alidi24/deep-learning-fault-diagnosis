@@ -19,9 +19,12 @@ DOI: [10.5281/zenodo.7674842](https://doi.org/10.5281/zenodo.7674842)
 ## Features
 
 - Vibration-based fault detection using optimal sensor placement
+- Analysis under three environmental conditions
+- Time series signal processing
 - PCA for dimension reduction and feature extraction
 - CNN-based fault classification
-- Analysis under three environmental conditions
+- Multi-class fault diagnosis
+  
 
 ## Getting Started
 
