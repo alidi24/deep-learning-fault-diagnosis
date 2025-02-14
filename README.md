@@ -1,6 +1,6 @@
 # Wind Turbine Drivetrain Fault Diagnosis
 
-A fault classification model for wind turbine drivetrain bearings using combined PCA-CNN approach.
+A deep learning fault classification model for wind turbine drivetrain bearings using a combined PCA-CNN approach.
 
 ## Overview
 
