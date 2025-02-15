@@ -17,19 +17,19 @@ This project implements a combined Principal Component Analysis (PCA) and Convol
 <p align="center">
   <img src="figures/cnn-arch.png" alt="CNN model architecture">
   <br>
-  <em>Figure 1: CNN model architecture</em>
+  <em>Fig. 1: CNN model architecture</em>
 </p>
 
 <p align="center">
   <img src="figures/gearbox-schematic.png" alt="Drivetrain schematic layout">
   <br>
-  <em>Figure 2: Fault and measurement locations on drivetrain schematic layout</em>
+  <em>Fig. 2: Fault and measurement locations on drivetrain schematic layout</em>
 </p>
 
 <p align="center">
   <img src="figures/overall-procedure.png" alt="Multi-measurement fault detection approach">
   <br>
-  <em>Figure 3: Overall procedure of multi-measurement fault detection approach presented in the paper</em>
+  <em>Fig. 3: Overall procedure of multi-measurement fault detection approach presented in the paper</em>
 </p>
 
 
