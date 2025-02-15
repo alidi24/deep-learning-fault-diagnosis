@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "deep-learning-fault-diagnosis"
+version = "0.1.0"
+description = "Combined PCA-CNN multi-class classification model for bearing fault diagnosis in offshore wind turbine drivetrain"
+authors = ["Ali Dibaj <ali.dibaj@outlook.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+numpy = "^1.23.5"
+scipy = "^1.15.1"
+matplotlib = "^3.10.0"
+pandas = "^2.2.3"
+torch = {version = "^2.6.0", extras = ["cpu"]}
+lightning = "^2.5.0.post0"
+
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
