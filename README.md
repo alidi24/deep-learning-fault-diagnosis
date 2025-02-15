@@ -14,18 +14,7 @@ This project implements a combined Principal Component Analysis (PCA) and Convol
 
 
 If you find this work useful, please consider citing the original paper:
-@article{DIBAJ2023161,
-title = {Fault detection of offshore wind turbine drivetrains in different environmental conditions through optimal selection of vibration measurements},
-journal = {Renewable Energy},
-volume = {203},
-pages = {161-176},
-year = {2023},
-issn = {0960-1481},
-doi = {https://doi.org/10.1016/j.renene.2022.12.049},
-url = {https://www.sciencedirect.com/science/article/pii/S0960148122018341},
-author = {Ali Dibaj and Zhen Gao and Amir R. Nejad},
-keywords = {Offshore wind turbine, Drivetrain system, Fault detection, Optimal vibration measurements},
-}
+DIBAJ2023161, title = {Fault detection of offshore wind turbine drivetrains in different environmental conditions through optimal selection of vibration measurements}, journal = {Renewable Energy}, volume = {203}, pages = {161-176}, year = {2023}, issn = {0960-1481}, doi = {https://doi.org/10.1016/j.renene.2022.12.049}, url = {https://www.sciencedirect.com/science/article/pii/S0960148122018341}, author = {Ali Dibaj and Zhen Gao and Amir R. Nejad}, keywords = {Offshore wind turbine, Drivetrain system, Fault detection, Optimal vibration measurements}
 
 
 ![Fig. 1. CNN model architecture](figures/cnn-arch.png)
