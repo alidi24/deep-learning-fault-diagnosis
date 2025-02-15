@@ -9,7 +9,7 @@ Implementation of the fault detection method proposed in:
 "Fault detection of offshore wind turbine drivetrains in different environmental conditions through optimal selection of vibration measurements" by Dibaj et al. (2023)
 DOI: [10.1016/j.renene.2022.12.049](https://doi.org/10.1016/j.renene.2022.12.049)
 
-The model uses combined Principal Component Analysis (PCA) and Convolutional Neural Network (CNN) (Figure 1) to detect bearing faults - main, intermediate-stage planet, and high-speed-stage bearings, (Figure 2) - in a 5-MW NREL reference drivetrain high-fidelity model.
+The model uses combined Principal Component Analysis (PCA) and Convolutional Neural Network (CNN) (Figure 1) to detect bearing faults - main, intermediate-stage planet, and high-speed-stage bearings (Figure 2) - in a 5-MW NREL reference drivetrain high-fidelity model.
 
 ## Dataset
 
