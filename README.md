@@ -54,7 +54,7 @@ The HuggingFace version of this dataset (containing the target sensors data used
 ## Getting Started
 
 ### Prerequisites
-- Python >=3.11
+- Python >=3.10
 - Poetry for dependency management
 
 ### Installation
