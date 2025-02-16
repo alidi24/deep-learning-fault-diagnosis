@@ -11,8 +11,14 @@ from src.dataset_manager import DatasetManager
 
 class DataModule(LightningDataModule):
     """
-    DataModule for wind turbine bearing dataset with PCA transformation and frame splitting.
-    Handles data loading, preprocessing, and augmentation.
+    DataModule for wind turbine bearing dataset.
+    Dataset is loaded from Hugging Face at this URL: https://huggingface.co/datasets/alidi/wind-turbine-5mw-bearing-dataset
+    Please see the dataset card for more information on the dataset.
+    
+    The dataset is preprocessed with PCA transformation and frame splitting.
+    Augmentation is applied during training if configured.
+    
+
     """
     def __init__(self, config: Dict[str, Any]) -> None:
         """Initialize DataModule with configuration parameters."""
@@ -29,25 +35,27 @@ class DataModule(LightningDataModule):
         Load and preprocess the dataset with PCA transformation and frame splitting.
         Returns the processed dataset.
         """
-        ds = load_dataset("alidi/wind-turbine-5mw-bearing-dataset")
+        ds = load_dataset("alidi/wind-turbine-5mw-bearing-dataset", split="train")
 
-        ds = ds.map(PCATransform,
-                    batched=True,
-                    fn_kwargs={
-                        'n_components': 1,
-                        'input_columns': ['signal_a1a', 'signal_a2a'],
-                        'output_column': 'pc_feature_1',
-                        'standardize': True
-                    }
+        ds = ds.map(PCATransform(
+            n_components=1,
+            input_columns= ['signal_a1a', 'signal_a3a'],
+            output_column= 'pc_feature_1',
+            ),
+            batched=True,
         )
 
-        self.ds = ds.map(SplitToFrame,
-                    batched=True, 
-                    fn_kwargs={"frame_length": self.config["frame_length"], 
-                               "hop_length": self.config["hop_length"],
-                               "signal_column": "pc_feature_1"}
-        )
+        ds = ds.remove_columns(["signal_a1a", "signal_a3a"])
 
+        ds = ds.map(SplitToFrame(
+            frame_length= self.config["frame_length"], 
+            hop_length= self.config["hop_length"],
+            signal_column= "pc_feature_1",
+            key_column= "environmental_condition"
+            ),
+            batched=True, 
+        )
+        self.ds = ds
         return self.ds
 
     def setup(self, stage: Optional[str] = None) -> Union[Tuple[Dataset, Dataset], Dataset]:
@@ -85,6 +93,7 @@ class DataModule(LightningDataModule):
         return DataLoader(
             self.train_dataset,
             batch_size=self.config["batch_size"],
+            num_workers=7,
             shuffle=True,
             drop_last=True,
             collate_fn=self.train_collate,
@@ -95,6 +104,7 @@ class DataModule(LightningDataModule):
         return DataLoader(
             self.val_dataset,
             batch_size=self.config["batch_size"],
+            num_workers=7,
             drop_last=True,
             collate_fn=self._collate_fn,
         )
@@ -104,6 +114,7 @@ class DataModule(LightningDataModule):
         return DataLoader(
             self.test_dataset,
             batch_size=self.config["batch_size"],
+            num_workers=7,
             drop_last=False,
             collate_fn=self._collate_fn,
         )
@@ -114,10 +125,10 @@ class DataModule(LightningDataModule):
 
     def _collate_fn(
         self, batch: List[Dict[str, Any]], is_train: bool = False
-    ) -> torch.Tensor:
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
         """
         Collates batch data into tensors. Applies augmentation during training if configured.
-        Returns: Tensor of shape [batch_size, 1, signal_length]
+        Returns: Tuple of (signals, labels) where signals has shape [batch_size, channel_num, signal_length]
         """
         if is_train and self.config["is_aug"]:
             batch = self.__augmentation(batch)
@@ -127,8 +138,9 @@ class DataModule(LightningDataModule):
             torch.tensor(sample["pc_feature_1"], dtype=default_float_dtype).unsqueeze(0) 
             for sample in batch
         ]
+        labels = torch.tensor([sample["label"] for sample in batch], dtype=torch.long)
 
-        return torch.stack(tensor_signals)
+        return torch.stack(tensor_signals), labels
 
     def __augmentation(self, batch: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """

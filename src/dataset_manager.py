@@ -29,7 +29,7 @@ class DatasetManager:
             label_train_indices, label_test_indices = train_test_split(
                 label_indices,
                 test_size=test_size,
-                random_seed=random_seed
+                random_state=random_seed
             )
             
             train_indices.extend(label_train_indices)
