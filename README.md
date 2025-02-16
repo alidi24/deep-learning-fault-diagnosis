@@ -39,7 +39,7 @@ The original vibration dataset used in this project, along with additional infor
 DOI: [10.5281/zenodo.7674842](https://doi.org/10.5281/zenodo.7674842)
 
 The HuggingFace version of this dataset (containing the target sensors data used in this project) is available at:
-[Link to be added]
+[https://huggingface.co/datasets/alidi/wind-turbine-5mw-bearing-dataset]
 
 ## Features
 
