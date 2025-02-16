@@ -53,7 +53,40 @@ The HuggingFace version of this dataset (containing the target sensors data used
 
 ## Getting Started
 
-[Instructions for setup and usage to be added]
+### Prerequisites
+- Python >=3.11
+- Poetry for dependency management
+
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/alidi24/deep-learning-fault-diagnosis.git
+cd deep-learning-fault-diagnosis
+```
+
+2. Install dependencies with Poetry:
+```bash
+poetry install
+```
+
+### Training the Model
+Run the training script:
+```bash
+poetry run python train.py
+```
+
+The model trains on the dataset from Hugging Face Hub using default configurations from `config.py`. Training checkpoints and test confusion matrix are saved to the `model_checkpoints` directory and project root respectively. Progress is displayed in the console output.
+
+### Project Structure
+**train.py**: Main training script with callbacks for checkpointing and early stopping.  
+**src/config.py**: Configuration settings for model architecture, training parameters, and data preprocessing.  
+**src/model.py**: CNN model architecture definition with convolutional and fully connected layers.  
+**src/data_module.py**: PyTorch Lightning data module handling dataset loading, preprocessing, and data loading.  
+**src/dataset_manager.py**: Manages dataset splitting into train/validation/test sets.  
+**src/hf_transforms.py**: Contains PCA and frame splitting transformations for data preprocessing.  
+**src/lightning_module.py**: PyTorch Lightning module implementing training, validation, and testing loops.  
+**pyproject.toml**: Project dependencies and metadata managed by Poetry.
+
 
 ## License
 
