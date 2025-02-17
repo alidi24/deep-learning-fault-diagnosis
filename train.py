@@ -55,7 +55,7 @@ def main() -> None:
         max_epochs=config["max_epoch"],
         callbacks=callbacks,
         gradient_clip_val=config["gradient_clip_val"],
-        accelerator="cpu",  # Change to "cuda" for GPU training
+        accelerator="cuda",  # Change to "cpu" for CPU training
     )
 
     try:
