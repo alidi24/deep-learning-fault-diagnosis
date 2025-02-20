@@ -133,34 +133,3 @@ class SplitToFrame:
         new_examples[self.key_column] = new_keys
         
         return new_examples
-    
-
-    
-
-
-# class NormalizeSample:
-#     def __call__(
-#         self,
-#         examples: dict[str, list],
-#         signal_column: str = "signal",
-#         output_column: str = "signal"
-#     ) -> dict[str, list]:
-#         """Normalize samples by removing mean and scaling by standard deviation.
-
-#         Args:
-#             examples (dict[str, list]): Input examples
-#             signal_column (str): Name of input signal column
-#             output_column (str): Name of output column (can be same as input)
-
-#         Returns:
-#             dict[str, list]: Updated examples with normalized signals
-#         """
-#         # Initialize output column if different from input
-#         if signal_column != output_column:
-#             examples[output_column] = [None] * len(examples[signal_column])
-            
-#         for ind, signal in enumerate(examples[signal_column]):
-#             std = np.std(signal, axis=-1, keepdims=True)
-#             examples[output_column][ind] = (signal - np.mean(signal, axis=-1, keepdims=True)) / std
-            
-#         return examples
