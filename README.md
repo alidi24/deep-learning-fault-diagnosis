@@ -36,7 +36,7 @@ This project implements a combined Principal Component Analysis (PCA) and Convol
 ## Dataset
 
 The original vibration dataset used in this project, along with additional information, is available at: 
-DOI: [10.5281/zenodo.7674842](https://doi.org/10.5281/zenodo.7674842)
+[10.5281/zenodo.7674842](https://doi.org/10.5281/zenodo.7674842)
 
 The HuggingFace version of this dataset (containing the target sensors data used in this project) is available at:
 [https://huggingface.co/datasets/alidi/wind-turbine-5mw-bearing-dataset]
