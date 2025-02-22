@@ -9,9 +9,7 @@ package-mode = false
 [tool.poetry.dependencies]
 python = ">=3.10"
 numpy = "^1.23.5"
-scipy = "^1.15.1"
 matplotlib = "^3.10.0"
-pandas = "^2.2.3"
 torch = {version = "^2.2.1", extras = ["cpu"]}
 lightning = "^2.1.0"
 datasets = "^3.3.0"
