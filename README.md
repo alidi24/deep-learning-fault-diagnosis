@@ -41,6 +41,13 @@ The original vibration dataset used in this project, along with additional infor
 The HuggingFace version of this dataset (containing the target sensors data used in this project) is available at:
 [https://huggingface.co/datasets/alidi/wind-turbine-5mw-bearing-dataset]
 
+> **Note:** To access the dataset, you'll need a Hugging Face account and access token:
+> ```python
+> from huggingface_hub import login
+> login(token="your_huggingface_token")
+> ```
+> To get your token: Sign up at huggingface.co → Settings → Access Tokens → Create new token
+
 ## Features
 
 - Vibration-based fault detection using optimal sensor placement
